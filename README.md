@@ -1,7 +1,7 @@
-![FatLennyFlyer](https://i.ibb.co/j8ZSmb7/Fat-Lenny-Banner.png)
-
-[![Python package](https://github.com/EBOGDAO/FatLennyBot/actions/workflows/python-package.yml/badge.svg)](https://github.com/EBOGDAO/FatLennyBot/actions/workflows/python-package.yml)
+[![Python package](https://github.com/stinkyfi/DiscordBot/actions/workflows/python-package.yml/badge.svg)](https://github.com/stinkyfi/DiscordBot/actions/workflows/python-package.yml)
 ![Twitter Follow](https://img.shields.io/twitter/follow/EBOGDAO?style=social)
+
+![FatLennyFlyer](https://i.ibb.co/j8ZSmb7/Fat-Lenny-Banner.png)
 
 A discord bot, using the discord.py library. Designed for OGDAO
 
