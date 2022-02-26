@@ -3,8 +3,8 @@
 # Project: Fat Lenny Discord Bot
 # Original Author: StinkyFi
 # Opened OG DAO: 6/9/2021
-# Contributors: swaHili
 # Version: 1.0.3
+#
 #########################################
 
 # Imports
@@ -15,7 +15,7 @@ import config
 
 illegal_words = []
 # Enter a prefix you would like to use to interact with your bot
-client = commands.Bot(command_prefix='$lenny ')
+client = commands.Bot(command_prefix='$robo ')
 bot_key = config.discord[0]['bot_key']
 
 

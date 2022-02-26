@@ -3,6 +3,10 @@ from pip._vendor import requests
 import requests
 import discord
 from discord.ext import commands, tasks
+from discord import Color
+from decimal import Decimal
+import time
+import math
 # Custom Config
 import config
 import main
@@ -42,9 +46,9 @@ class Pricing(commands.Cog):
         api = 'https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=' + config.etherscan['api_key']
         response = requests.get(api)
         link = "https://etherscan.io/gastracker"
-        header = "Fat Lenny's ETH Gas/Deli Station"
+        header = "Fat Pepe's ETH Gas Station"
         embed = discord.Embed(title=header, url=link, description="Prices provided by Etherscan", color=0xdb0000)
-        embed.set_thumbnail(url="https://i.ibb.co/sCsYDqm/fat-pepes-deli.png")
+        embed.set_thumbnail(url="https://i.ibb.co/4YdQ47s/fatPepe.png")
         embed.add_field(name=":fuelpump:Regular", value=response.json()['result']['SafeGasPrice'] + ' Gwei')
         embed.add_field(name=":fuelpump:Plus", value=response.json()['result']['ProposeGasPrice'] + ' Gwei')
         embed.add_field(name=":fuelpump:Supreme", value=response.json()['result']['FastGasPrice'] + ' Gwei')
@@ -58,16 +62,60 @@ class Pricing(commands.Cog):
             price = "Offline"
         embed.set_footer(text="Now buy something or get out")
         print("average: " + str(average))
-        print("price: " + str(price))
+        print("price: " + str(Decimal(price)))
+        eth_gwei = Decimal(0.000000001 * average)
+        gas_usd = eth_gwei * Decimal(price)
+        print(eth_gwei)
+        print(gas_usd)
         long = price / pow(10, 9)
         gwei = long
         print("1 gwei: " + str(gwei))
-        total = float(gwei) * average
+        print("Math: " + str(float(gwei)) + ' * ' + str(average))
+        total = float(gwei) ** average
         print("total ETH: " + str(total))
         dollar = total * price
         dollar = dollar * gwei
         print("total USD: " + str(dollar))
         print('<<<gascheck')
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def ethbalance(self, ctx, arg):
+        api = 'https://api.etherscan.io/api?module=account&action=balance&address=' + str(arg) + '&tag=latest&apikey' \
+              '=AX64T2QQQUVW6JPSAGP8J8GKZRXHSXKC33'
+        response = requests.get(api)
+        eth_balance = response.json()['result']
+        total_eth = Decimal(float(eth_balance) / 1000000000000000000)
+        total = "<a:knucklesroll:802355992850726973> Fat Knuckles ETH Balance Sheets\n" + "```{:.4f}ETH ".format(total_eth)
+        api = 'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
+        response = requests.get(api)
+        # Setting `Streaming ` status
+        print(response.json()['ethereum']['usd'])
+        price = total_eth * Decimal(response.json()['ethereum']['usd'])
+        price = "(${:0,.2f})".format(price)
+        total += str(price) + "```"
+        await ctx.channel.send(total)
+
+    @commands.command()
+    async def sushibar(self, ctx):
+        epoch = time.time()
+        epoch = math.trunc(epoch)
+        apy, apr = "", ""
+        api = 'https://api2.sushipro.io/?action=get_xsushi_apy&from=1632494793&to=' + str(epoch)
+        response = requests.get(api)
+        datas = response.json()[1]
+        for data in datas:
+            apy = str("{:0,.2f}".format(data['apy'])) + '%'
+            apr = str("{:0,.2f}".format(data['apr'])) + '%'
+            break
+        header = "Gas Station xSUSHI Bar"
+        desc = "Current Rewards are: "
+        embed = discord.Embed(title=header, url="", description=desc, color=Color.gold())
+        embed.set_thumbnail(url="https://app.sushi.com/_next/image?url=%2Fxsushi-sign.png&w=1920&q=75")
+        embed.add_field(name="APY", value=apy)
+        embed.add_field(name="APR", value=apr)
+        embed.set_footer(text="Powered by: SushiSwap API")
         await ctx.send(embed=embed)
 
 
