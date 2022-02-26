@@ -132,18 +132,6 @@ class OGdao(commands.Cog):
                 await ctx.send(embed=embed)
 
     @commands.command()
-    async def twitter(self, ctx):
-        print('twitter>>>')
-        link = "https://twitter.com/EBOGDAO"
-        header = "Twitter: @EBOGDAO"
-        embed = discord.Embed(title=header, url=link, color=Color.blue())
-        embed.set_thumbnail(url="https://pbs.twimg.com/profile_images/1389787778129358849/zkgm31D6_400x400.jpg")
-        embed.add_field(name="Link:", value='https://twitter.com/EBOGDAO')
-        embed.set_footer(text="Follow Us on twitter: @EBOGDAO")
-        print('<<<gnosis')
-        await ctx.send(embed=embed)
-
-    @commands.command()
     async def lp26(self, ctx):
         print('lp26>>>')
         link = "https://eulerbeats.com/enigma/1280018153728"

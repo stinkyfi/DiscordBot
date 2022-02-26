@@ -1,0 +1,9 @@
+# IDE files
+.idea
+
+# Config files
+config.py
+tt_config.py
+
+# Secret files
+priceBots/
