@@ -1,6 +1,3 @@
-[![Python package](https://github.com/EBOGDAO/FatLennyBot/actions/workflows/python-package.yml/badge.svg)](https://github.com/EBOGDAO/FatLennyBot/actions/workflows/python-package.yml)
-![Twitter Follow](https://img.shields.io/twitter/follow/EBOGDAO?style=social)
-
 A discord bot, using the discord.py library with multiple Crypto Cogs.
 
 ## Install Requirements
