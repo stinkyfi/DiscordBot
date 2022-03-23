@@ -166,9 +166,9 @@ class CultofCrypto(commands.Cog):
         vet = res.json()['vechain']['usd']
         total += float(vet) * 11477
         vet = "${:0,.2f}".format(vet * 11477)
-        api = 'https://api.coingecko.com/api/v3/simple/price?ids=bittorrent&vs_currencies=usd'
+        api = 'https://api.coingecko.com/api/v3/simple/price?ids=bittorrent-2&vs_currencies=usd'
         res = requests.get(api)
-        btt = res.json()['bittorrent']['usd']
+        btt = res.json()['bittorrent-2']['usd']
         total += float(btt) * 11923
         btt = "${:0,.2f}".format(btt * 11923)
         header = "Ape-van's Fantasy Score"
@@ -306,9 +306,9 @@ class CultofCrypto(commands.Cog):
         api = 'https://api.coingecko.com/api/v3/simple/price?ids=havven&vs_currencies=usd'
         res = requests.get(api)
         snx = res.json()['havven']['usd']
-        api = 'https://api.coingecko.com/api/v3/simple/price?ids=bittorrent&vs_currencies=usd'
+        api = 'https://api.coingecko.com/api/v3/simple/price?ids=bittorrent-2&vs_currencies=usd'
         res = requests.get(api)
-        btt = res.json()['bittorrent']['usd']
+        btt = res.json()['bittorrent-2']['usd']
         api = 'https://api.coingecko.com/api/v3/simple/price?ids=reserve-rights-token&vs_currencies=usd'
         res = requests.get(api)
         rsr = res.json()['reserve-rights-token']['usd']

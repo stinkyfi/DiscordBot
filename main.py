@@ -15,7 +15,7 @@ import config
 
 illegal_words = []
 # Enter a prefix you would like to use to interact with your bot
-client = commands.Bot(command_prefix='$robo ')
+client = commands.Bot(command_prefix='$dwarf ')
 bot_key = config.discord[0]['bot_key']
 
 
