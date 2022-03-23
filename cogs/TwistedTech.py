@@ -187,8 +187,8 @@ class TwistedTech(commands.Cog):
 
     @commands.command()
     async def bubo(self, ctx):
-        api = "https://api.ftmscan.com/api?module=stats&action=tokensupply&contractaddress" \
-                 "=0x9b1372e4a65d914d670f061913ad746250533b49&apikey=1ZXM4HW5X9TAN4GGRCJ27JJN2D1WYWFZWF "
+        api = 'https://api.ftmscan.com/api?module=stats&action=tokensupply&contractaddress' \
+                 '=0x9b1372e4a65d914d670f061913ad746250533b49&apikey=' + tt_config.ftmscan['api_key']
         response = requests.get(api)
         supply = response.json()['result']
         header = "$BUBO Analytics"
@@ -203,8 +203,8 @@ class TwistedTech(commands.Cog):
 
     @commands.command()
     async def blood(self, ctx):
-        api = "https://api.ftmscan.com/api?module=stats&action=tokensupply&contractaddress" \
-                 "=0xa75bdbC03a9E5ea6E695Aa3E8321f181F61d0fae&apikey=1ZXM4HW5X9TAN4GGRCJ27JJN2D1WYWFZWF "
+        api = 'https://api.ftmscan.com/api?module=stats&action=tokensupply&contractaddress' \
+                 '=0xa75bdbC03a9E5ea6E695Aa3E8321f181F61d0fae&apikey=' + tt_config.ftmscan['api_key']
         response = requests.get(api)
         supply = response.json()['result']
         supply = Decimal(float(supply) / 1000000000000000000)
